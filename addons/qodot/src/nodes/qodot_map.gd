@@ -1234,7 +1234,10 @@ func connect_signal(entity_node: Node, target_node: Node) -> void:
 			
 			var target_nodes := get_nodes_by_targetname(receiver_node.properties['target'])
 			for node in target_nodes:
-				entity_node.connect(signal_name,Callable(node,receiver_name),CONNECT_PERSIST)
+				if node and receiver_name and node.has_method(receiver_name):
+					entity_node.connect(signal_name,Callable(node,receiver_name),CONNECT_PERSIST)
+				else:
+					printerr("\"%s\" does not have method named \"%s\"" % [node.name,receiver_name])
 	else:
 		var signal_list = entity_node.get_signal_list()
 		for signal_dict in signal_list:
