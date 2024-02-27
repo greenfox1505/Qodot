@@ -35,7 +35,7 @@ extends Resource
 @export var texture_exclusion_patterns: Array[String] = ["*_ao", "*_emission", "*_heightmap", "*_metallic", "*_normal", "*_orm", "*_roughness", "*_sss"]
 
 ## Array of FGD resources to include with this game.
-@export var fgd_files : Array[Resource] = [
+@export var fgd_files : Array[QodotFGDFile] = [
 	preload("res://addons/qodot/game_definitions/fgd/qodot_fgd.tres")
 ]
 
@@ -49,10 +49,10 @@ extends Resource
 @export_category("Editor hint tags")
 
 ## Container for TrenchbroomTag resources that apply to brush entities.
-@export var brush_tags : Array[Resource] = []
+@export var brush_tags : Array[TrenchBroomTag] = []
 
 ## Container for TrenchbroomTag resources that apply to textures.
-@export var face_tags : Array[Resource] = []
+@export var face_tags : Array[TrenchBroomTag] = []
 
 ## Arrays containing the TrenchbroomFaceAttrib resource type. Currently not parsed by Qodot.
 @export_category("Quake 2 compatibility")
